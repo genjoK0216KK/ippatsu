@@ -1,0 +1,468 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>動画編集の外注・代行ならIPPATSU｜切り抜きショート・字幕・サムネ</title>
+<meta name="description" content="動画編集の外注・代行サービスIPPATSU。長い動画から、見出しと字幕の入った縦型の切り抜きショートを作ります。素材の長さと本数で料金がその場で決まるので、見積もりの依頼なしで動画編集を依頼できます。">
+<meta property="og:title" content="動画編集の外注・代行ならIPPATSU">
+<meta property="og:description" content="長い動画から、見出しと字幕の入った縦型ショートを何本も。料金はその場で決まります。">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://genjok0216kk.github.io/ippatsu/sample-1.jpg">
+<meta property="og:url" content="https://genjok0216kk.github.io/ippatsu/">
+<link rel="canonical" href="https://genjok0216kk.github.io/ippatsu/">
+<meta name="theme-color" content="#D81159">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;700;900&display=swap" rel="stylesheet">
+<script>
+// ===== 設定（ここだけ直せば動く）=====
+// 申し込みフォーム（Googleフォーム）の「事前入力したURL」の entry 番号。空のあいだはボタンを「準備中」にする。
+var FORM = {
+  // IPPATSU のアカウント（ippatsu.shorts）の「IPPATSU 動画編集のお申し込み」。フォームを公開するまで、開くと「公開されていません」になる
+  url: "https://docs.google.com/forms/d/1TbPkTabToh2cb6Wcd9PBza7RxM9W7s1fBMq7TFwzcns/viewform",
+  menu: "entry.471946447",     // メニュー
+  detail: "entry.1135584423",  // 見積もりの内容
+  total: "entry.766698396"     // 合計金額（税別）
+};
+// Microsoft Clarity のプロジェクトID。空なら入れない。
+var CLARITY_ID = "zf65bfprn4";
+if (CLARITY_ID) {
+  (function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+  t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+  y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script",CLARITY_ID);
+}
+</script>
+<style>
+:root{
+  --bg:#FBF9FA; --surface:#FFFFFF; --sunk:#F4EFF1; --ink:#1A1317;
+  --line:#E9E1E5; --fg:#1A1317; --muted:#6E6168;
+  --accent:#D81159; --accent-ink:#FFFFFF; --bad:#B42318;
+  --display:"Zen Kaku Gothic New",system-ui,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,SFMono-Regular,monospace;
+}
+@media (prefers-color-scheme:dark){ :root:not([data-theme="light"]){
+  --bg:#141014; --surface:#1D181C; --sunk:#241E23; --ink:#0E0B0D;
+  --line:#352C33; --fg:#F5EFF2; --muted:#A3949C;
+  --accent:#FF4A80; --accent-ink:#2A0512; --bad:#FF8A80; color-scheme:dark;
+}}
+:root[data-theme="dark"]{
+  --bg:#141014; --surface:#1D181C; --sunk:#241E23; --ink:#0E0B0D;
+  --line:#352C33; --fg:#F5EFF2; --muted:#A3949C;
+  --accent:#FF4A80; --accent-ink:#2A0512; --bad:#FF8A80; color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--fg);font-family:var(--display);margin:0;font-size:16px;line-height:1.75;
+     -webkit-font-smoothing:antialiased;border-top:6px solid var(--accent)}
+.wrap{max-width:960px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));
+      padding-right:max(16px,env(safe-area-inset-right,0px))}
+header.top{display:flex;justify-content:space-between;align-items:center;padding-block:18px;border-bottom:1px solid var(--line)}
+.logo{font-weight:900;font-size:22px;letter-spacing:.02em;color:var(--fg);text-decoration:none}
+.top a.cta-sm{font-size:13px;font-weight:700;color:var(--accent);text-decoration:none}
+h1,h2,h3{text-wrap:balance;margin:0;line-height:1.3}
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:700}
+section{padding-block:56px;border-bottom:1px solid var(--line)}
+section:last-of-type{border-bottom:0}
+h2{font-size:clamp(24px,5.4vw,34px);font-weight:900;margin-top:8px}
+.lead{color:var(--muted);margin-top:12px;max-width:52ch}
+.num{font-family:var(--mono);font-variant-numeric:tabular-nums}
+
+/* 入口 */
+.hero{padding-top:40px}
+.hero h1{font-size:clamp(32px,7.6vw,54px);font-weight:900;letter-spacing:-.02em;margin-top:10px}
+.hero h1 .br{display:inline-block}
+.price-card{background:var(--ink);color:#F5EFF2;border-radius:14px;padding:24px;margin-top:28px}
+.price-card .what{font-size:13px;opacity:.8}
+.price-card .ex{font-size:clamp(18px,4.6vw,24px);font-weight:700;margin-top:6px;text-wrap:balance}
+.price-card .big{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px;margin-top:14px}
+.price-card .total{font-family:var(--mono);font-size:clamp(44px,13vw,72px);font-weight:700;line-height:1}
+.price-card .yen{font-size:18px}
+.price-card .per{margin-left:auto;font-size:14px;opacity:.85}
+.price-card .cond{font-size:12px;opacity:.7;margin-top:10px}
+.breakdown{margin-top:6px}
+.breakdown div{display:grid;grid-template-columns:2.2em 5em 1fr auto;gap:8px;align-items:baseline;padding:12px 0;border-bottom:1px solid var(--line);font-size:14px}
+.breakdown .no{font-family:var(--mono);color:var(--accent);font-size:12px}
+.breakdown .k{font-weight:700}
+.breakdown .d{color:var(--muted);font-size:13px;min-width:0}
+.breakdown .v{font-family:var(--mono);font-size:18px;white-space:nowrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--accent);color:var(--accent-ink);
+     font:inherit;font-weight:700;font-size:16px;border:0;border-radius:12px;padding:15px 22px;text-decoration:none;cursor:pointer;
+     min-height:52px}
+.btn:focus-visible{outline:3px solid var(--fg);outline-offset:3px}
+.btn[aria-disabled="true"],.btn:disabled{opacity:.45;cursor:not-allowed}
+.btn.block{width:100%}
+.hero .btn{margin-top:22px}
+.note{font-size:12.5px;color:var(--muted);margin-top:10px}
+
+/* できあがり */
+.result{display:grid;gap:28px;grid-template-columns:1fr;margin-top:28px;align-items:start}
+@media (min-width:760px){.result{grid-template-columns:minmax(0,1fr) minmax(0,1.1fr)}}
+.phones{display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:420px}
+.phones img{width:100%;height:auto;aspect-ratio:9/16;object-fit:cover;border-radius:16px;border:1px solid var(--line);display:block;background:var(--sunk)}
+.points{list-style:none;padding:0;margin:0;display:grid;gap:14px}
+.points li{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+.points b{display:block;font-size:17px}
+.points span{color:var(--muted);font-size:14px}
+
+/* メニュー */
+.menus{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));margin-top:24px}
+.m{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px}
+.m h3{font-size:19px}
+.m p{color:var(--muted);font-size:14px;margin:8px 0 12px}
+.m .p{font-family:var(--mono);font-weight:700}
+
+/* 見積 */
+.calc{display:grid;gap:20px;grid-template-columns:1fr;margin-top:24px}
+@media (min-width:860px){.calc{grid-template-columns:minmax(0,1.15fr) minmax(0,1fr)}}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px}
+fieldset{border:0;margin:0 0 18px;padding:0;min-width:0}
+legend{font-size:13px;font-weight:700;color:var(--muted);padding:0;margin-bottom:8px}
+.choice{display:grid;gap:8px;grid-template-columns:repeat(auto-fit,minmax(140px,1fr))}
+.choice label{position:relative;min-width:0}
+.choice input{position:absolute;opacity:0;pointer-events:none}
+.choice span{display:block;border:1px solid var(--line);background:var(--sunk);border-radius:10px;padding:11px 13px;cursor:pointer;
+             font-size:14px;font-weight:700;min-height:48px}
+.choice small{display:block;font-weight:400;font-size:11.5px;opacity:.85;line-height:1.5}
+.choice input:checked+span{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.choice input:focus-visible+span{outline:2px solid var(--accent);outline-offset:2px}
+.fields{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
+.field{display:flex;flex-direction:column;gap:5px;min-width:0}
+.field[hidden]{display:none}
+.field label{font-size:13px;font-weight:700}
+.inp{display:flex;align-items:center;border:1px solid var(--line);border-radius:10px;background:var(--bg);padding:0 12px;min-height:48px}
+.inp.bad{border-color:var(--bad);box-shadow:0 0 0 1px var(--bad)}
+.inp input{border:0;background:transparent;color:var(--fg);font-family:var(--mono);font-size:18px;width:100%;min-width:0;padding:10px 0;outline:none}
+.inp .u{color:var(--muted);font-size:14px;white-space:nowrap}
+.hint{font-size:12px;color:var(--muted)}
+.err{font-size:12.5px;color:var(--bad);font-weight:700}
+.quote h3{font-size:15px;color:var(--muted)}
+.lines{margin-top:8px}
+.line{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--line);font-size:14px}
+.line .v{font-family:var(--mono);white-space:nowrap}
+.line.zero .v{color:var(--muted)}
+.sumrow{display:flex;align-items:baseline;flex-wrap:wrap;gap:4px 10px;margin-top:14px}
+.sum{font-family:var(--mono);font-size:clamp(34px,9vw,44px);font-weight:700;line-height:1.1}
+.tax{font-size:14px;color:var(--muted)}
+.per2{font-size:13px;color:var(--muted);margin-top:2px}
+.quote .btn{margin-top:18px}
+
+/* 流れ・FAQ */
+.steps{list-style:none;padding:0;margin:24px 0 0;display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));counter-reset:s}
+.steps li{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px;counter-increment:s}
+.steps li::before{content:"0" counter(s);font-family:var(--mono);color:var(--accent);font-size:13px;font-weight:700;display:block}
+.steps b{display:block;font-size:16px;margin-top:4px}
+.steps span{font-size:13.5px;color:var(--muted)}
+details{border-bottom:1px solid var(--line);padding:14px 0}
+summary{cursor:pointer;font-weight:700;list-style-position:outside}
+details p{color:var(--muted);margin:8px 0 0;font-size:14.5px}
+.faq{margin-top:20px}
+.law{display:grid;grid-template-columns:minmax(8em,12em) 1fr;gap:0;margin:16px 0 0;font-size:14px;border-top:1px solid var(--line)}
+.law dt,.law dd{margin:0;padding:10px 0;border-bottom:1px solid var(--line)}
+.law dt{font-weight:700;padding-right:12px}
+.law dd{color:var(--muted)}
+@media (max-width:560px){.law{grid-template-columns:1fr}.law dt{border-bottom:0;padding-bottom:0}.law dd{padding-top:2px}}
+footer{padding-block:32px 48px;color:var(--muted);font-size:13px;border-top:1px solid var(--line)}
+footer a{color:inherit}
+.sticky{position:fixed;left:0;right:0;bottom:0;padding:10px max(16px,env(safe-area-inset-left,0px)) calc(10px + env(safe-area-inset-bottom,0px));
+        background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(6px);border-top:1px solid var(--line);display:none;z-index:5}
+@media (max-width:759px){.sticky.show{display:block} body{padding-bottom:84px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a class="logo" href="#">IPPATSU</a>
+    <a class="cta-sm" href="#calc">料金を見る</a>
+  </header>
+
+  <section class="hero" aria-labelledby="h1">
+    <div class="eyebrow">定額の動画編集サービス</div>
+    <h1 id="h1"><span class="br">動画編集の</span><span class="br">外注・代行は、</span><span class="br">IPPATSU。</span></h1>
+    <p class="lead">長い動画から、見出しと字幕の入った縦型ショートを何本も作ります。料金は「素材の長さ」と「本数」だけで決まるので、見積もりの依頼も、相見積もりもいりません。</p>
+
+    <div class="price-card" aria-label="料金の例">
+      <div class="what">切り抜きショート｜料金の例</div>
+      <div class="ex">15分の素材から、30秒のショートを6本。</div>
+      <div class="big">
+        <span class="total num">16,500</span><span class="yen">円（税別）</span>
+        <span class="per">1本あたり <span class="num">2,750</span>円</span>
+      </div>
+      <div class="cond">素材1本／1発編集納品／サムネなし</div>
+    </div>
+    <div class="breakdown" aria-label="金額の内訳">
+      <div><span class="no">01</span><span class="k">素材費</span><span class="d">15分 × 500円。1素材につき1回。</span><span class="v">7,500円</span></div>
+      <div><span class="no">02</span><span class="k">編集費</span><span class="d">30秒のショート6本 × 1,500円。</span><span class="v">9,000円</span></div>
+      <div><span class="no">03</span><span class="k">追加</span><span class="d">1発編集納品・サムネなし。</span><span class="v">0円</span></div>
+    </div>
+    <a class="btn" href="#calc">自分の条件で料金を見る</a>
+    <p class="note">料金を見るだけなら、名前やメールアドレスの入力はいりません。</p>
+  </section>
+
+  <section aria-labelledby="h-result">
+    <div class="eyebrow">できあがり</div>
+    <h2 id="h-result">上に見出し、下に字幕。<br>スマホで止まるショートに。</h2>
+    <div class="result">
+      <div class="phones">
+        <img src="sample-1.jpg" alt="切り抜きショートの例：上に黄色の見出し、真ん中に動画、下に字幕" width="540" height="960" loading="lazy">
+        <img src="sample-2.jpg" alt="切り抜きショートの例（2本目）" width="540" height="960" loading="lazy">
+      </div>
+      <ul class="points">
+        <li><b>見たくなる見出し</b><span>話の中身から、続きが気になる見出しを付けます。動画の中で言っていないことは書きません。</span></li>
+        <li><b>話がまとまる場面を選ぶ</b><span>話の頭から入り、オチや答えまで入れて切ります。話の途中で切れないようにします。</span></li>
+        <li><b>字幕と、間をつめたテンポ</b><span>字幕を入れ、無音の間をつめて、最後まで見やすい長さにします。</span></li>
+        <li><b>縦型 1080×1920</b><span>YouTubeショート・TikTok・Instagramリールにそのまま出せる形です。</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-menu">
+    <div class="eyebrow">メニュー</div>
+    <h2 id="h-menu">依頼できる動画編集</h2>
+    <p class="lead">機械で確実に仕上がる範囲だけをメニューにしています。だから速くて、値段が動きません。</p>
+    <div class="menus">
+      <div class="m"><h3>切り抜きショート</h3><p>長い動画から盛り上がる場面を選び、縦型に組み直して何本も作ります。</p><div class="p">素材費＋1本1,500円〜</div></div>
+      <div class="m"><h3>カット編集＋字幕</h3><p>無音と言いよどみを削ってテンポを上げ、字幕を入れます。</p><div class="p">素材費＋1,500円〜</div></div>
+      <div class="m"><h3>サムネ作成</h3><p>動画から絵を抜いて、文字を載せます。</p><div class="p">1枚3,000円</div></div>
+    </div>
+    <p class="note">素材費は1分500円で、1素材につき1回だけ。切り抜きで何本作っても、素材費は1回です。表示はすべて税別です。</p>
+  </section>
+
+  <section id="calc" aria-labelledby="h-calc">
+    <div class="eyebrow">料金</div>
+    <h2 id="h-calc">自分の条件で、料金を見る</h2>
+    <p class="lead">メニューと長さを入れると、内訳と合計がその場で出ます。この内容のまま申し込めます。</p>
+    <div class="calc">
+      <form class="card" id="calcform" novalidate onsubmit="return false">
+        <fieldset>
+          <legend>メニュー</legend>
+          <div class="choice">
+            <label><input type="radio" name="menu" value="clips" checked><span>切り抜きショート<small>長い動画から縦型を何本も</small></span></label>
+            <label><input type="radio" name="menu" value="cut"><span>カット編集＋字幕<small>間をつめて字幕を入れる</small></span></label>
+            <label><input type="radio" name="menu" value="thumb"><span>サムネ作成<small>動画から1枚ずつ</small></span></label>
+          </div>
+        </fieldset>
+        <div class="fields">
+          <div class="field" id="f-src"><label for="src">素材の長さ</label><div class="inp"><input id="src" type="number" inputmode="decimal" value="15" min="1" max="600" step="any"><span class="u">分</span></div><span class="hint num" id="src-tc">00:15:00</span></div>
+          <div class="field" id="f-out" hidden><label for="out">編集後の長さ</label><div class="inp"><input id="out" type="number" inputmode="decimal" value="5" min="1" max="120" step="any"><span class="u">分</span></div><span class="hint num" id="out-tc">00:05:00</span></div>
+          <div class="field" id="f-len"><label for="clen">1本の長さ</label><div class="inp"><input id="clen" type="number" inputmode="numeric" value="30" min="5" max="60" step="1"><span class="u">秒</span></div><span class="hint">ショートは60秒まで</span></div>
+          <div class="field" id="f-cnt"><label for="cnt" id="cnt-label">作る本数</label><div class="inp"><input id="cnt" type="number" inputmode="numeric" value="6" min="1" max="50" step="1"><span class="u" id="cnt-unit">本</span></div><span class="hint" id="cnt-hint">素材費は1素材につき1回</span></div>
+          <div class="field" id="f-addthumb"><label for="thumb">サムネも付ける</label><div class="inp"><input id="thumb" type="number" inputmode="numeric" value="0" min="0" max="50" step="1"><span class="u">枚</span></div><span class="hint">1枚 3,000円</span></div>
+        </div>
+        <fieldset id="f-plan" style="margin-top:18px">
+          <legend>確認と修正のプラン</legend>
+          <div class="choice">
+            <label><input type="radio" name="plan" value="none" checked><span>1発編集納品<small>追加料金なし</small></span></label>
+            <label><input type="radio" name="plan" value="check"><span>チェックプラン<small>確認と編集</small></span></label>
+            <label><input type="radio" name="plan" value="perfect"><span>パーフェクト監修<small>確認と編集</small></span></label>
+          </div>
+        </fieldset>
+      </form>
+      <div class="card quote" aria-live="polite">
+        <h3>お見積もり</h3>
+        <div class="lines" id="lines"></div>
+        <div class="sumrow"><span class="sum" id="sum">—</span><span class="tax">円（税別）</span></div>
+        <div class="per2" id="per" hidden></div>
+        <a class="btn block" id="apply" href="#" role="button">この内容で申し込む</a>
+        <p class="note" id="apply-note">申し込みフォームが開きます。見積もりの内容は自動で入ります。送信する前に確かめられます。</p>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-flow">
+    <div class="eyebrow">流れ</div>
+    <h2 id="h-flow">動画編集を依頼する流れ</h2>
+    <ol class="steps">
+      <li><b>料金を確かめる</b><span>上の料金で、メニュー・長さ・本数を決めます。</span></li>
+      <li><b>フォームで申し込む</b><span>見積もりの内容は自動で入ります。お名前と連絡先を入れて送ります。</span></li>
+      <li><b>素材を渡す</b><span>動画は Googleドライブなどの共有リンクで受け取ります。</span></li>
+      <li><b>納品</b><span>できた動画と字幕のファイルを、共有フォルダでお渡しします。</span></li>
+    </ol>
+  </section>
+
+  <section aria-labelledby="h-faq">
+    <div class="eyebrow">よくある質問</div>
+    <h2 id="h-faq">よくある質問</h2>
+    <div class="faq">
+      <details><summary>素材費とは何ですか？</summary><p>動画を見て、使う場面を探すための料金です。素材1本につき1回だけで、切り抜きを何本作っても素材費は変わりません。1分500円（税別）です。</p></details>
+      <details><summary>どんな動画でも依頼できますか？</summary><p>ご自身の動画か、切り抜きの許可がある動画だけをお受けします。許可のない動画の切り抜きはお受けできません。</p></details>
+      <details><summary>字幕は正確ですか？</summary><p>字幕は文字おこしをもとに作ります。人の名前やお店の名前などは、申し込みのときに教えていただくと正しく入れやすくなります。公開の前に、一度ご確認ください。</p></details>
+      <details><summary>見積もりの依頼は必要ですか？</summary><p>いりません。このページの料金がそのまま金額です。表示はすべて税別です。</p></details>
+      <details><summary>できないことはありますか？</summary><p>指定の音源を入れる、モーショングラフィックス、色の作り込みはお受けしていません。</p></details>
+      <details><summary>納期はどのくらいですか？</summary><p>素材を受け取ってから3営業日以内にお渡しします（土日祝はお休みです）。素材が60分をこえるときや本数が多いときは、申し込みのあとに目安の日をお知らせします。</p></details>
+      <details><summary>支払い方法は？</summary><p>銀行振込です。納品のあとに請求書をお送りしますので、請求書の日付から14日以内にお振り込みください。振込手数料はお客様のご負担です。</p></details>
+      <details><summary>キャンセルはできますか？</summary><p>作業を始める前なら、無料でキャンセルできます。作業を始めたあとは、素材費をいただきます。</p></details>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-law">
+    <h2 id="h-law" style="font-size:18px">特定商取引法に基づく表記</h2>
+    <dl class="law">
+      <dt>販売事業者</dt><dd>株式会社結</dd>
+      <dt>運営責任者</dt><dd>木村玄象</dd>
+      <dt>所在地・電話番号</dt><dd>ご請求があれば、遅滞なくお知らせします。下のメールアドレスへご連絡ください。</dd>
+      <dt>お問い合わせ</dt><dd>ippatsu.shorts@gmail.com</dd>
+      <dt>販売価格</dt><dd>このページの料金のとおりです（表示はすべて税別。別に消費税がかかります）。</dd>
+      <dt>商品代金以外の費用</dt><dd>振込手数料</dd>
+      <dt>支払い方法・時期</dt><dd>銀行振込。納品のあとに請求書をお送りし、請求書の日付から14日以内にお支払いいただきます。</dd>
+      <dt>引き渡しの時期</dt><dd>素材を受け取ってから3営業日以内（素材が長いときや本数が多いときは、申し込みのあとにお知らせします）。</dd>
+      <dt>キャンセル・返品</dt><dd>作業を始める前なら無料でキャンセルできます。作業を始めたあとは素材費をいただきます。納品した動画はデータのため、返品はお受けしていません。直しはお選びいただいたプランのとおりに行います。</dd>
+    </dl>
+  </section>
+</div>
+<footer>
+  <div class="wrap">
+    <div><b>IPPATSU</b>｜定額の動画編集サービス（切り抜きショート・カット編集＋字幕・サムネ作成）</div>
+    <div style="margin-top:6px">動画編集の外注・代行・依頼のご相談は、<a href="#calc">料金のページ</a>からどうぞ。</div>
+  </div>
+</footer>
+<div class="sticky" id="sticky"><a class="btn block" href="#calc">自分の条件で料金を見る</a></div>
+
+<script>
+(function(){
+  var $ = function(id){ return document.getElementById(id); };
+  var price = { base:1500, step:500, src:500, thumb:3000 };
+  function tier(min){ return Math.max(1, Math.ceil(min / 5)); }
+  function editFee(min){ return price.base + price.step * (tier(min) - 1); }
+  function checkFee(min){ var t = tier(min); return t <= 1 ? 1000 : 2000 + 500 * (t - 2); }
+  function perfectFee(min){ return 5000 * tier(min); }
+  function planFee(kind, min){ return kind === 'check' ? checkFee(min) : kind === 'perfect' ? perfectFee(min) : 0; }
+  function planLabel(k){ return k === 'check' ? 'チェックプラン' : k === 'perfect' ? 'パーフェクト監修' : '1発編集納品'; }
+  function yen(n){ return Math.round(n).toLocaleString('ja-JP'); }
+  function tc(min){
+    var s = Math.round(min * 60), h = Math.floor(s / 3600), m = Math.floor((s % 3600) / 60), x = s % 60;
+    var p = function(v){ return String(v).padStart(2, '0'); };
+    return p(h) + ':' + p(m) + ':' + p(x);
+  }
+  function menu(){ return document.querySelector('input[name=menu]:checked').value; }
+  function plan(){ return document.querySelector('input[name=plan]:checked').value; }
+  // 範囲外や小数は丸めずにエラーにする（画面・見積・申込の数をずらさない）
+  var FIELDS = {
+    src:   { lo:1, hi:600, int:false, msg:'1〜600分で入れてください' },
+    out:   { lo:1, hi:120, int:false, msg:'1〜120分で入れてください' },
+    clen:  { lo:5, hi:60,  int:true,  msg:'5〜60秒の整数で入れてください（ショートは60秒まで）' },
+    cnt:   { lo:1, hi:50,  int:true,  msg:'1〜50本の整数で入れてください' },
+    thumb: { lo:0, hi:50,  int:true,  msg:'0〜50枚の整数で入れてください' }
+  };
+  function needed(kind){
+    if (kind === 'thumb') return ['cnt'];
+    if (kind === 'clips') return ['src', 'clen', 'cnt', 'thumb'];
+    return ['src', 'out', 'thumb'];
+  }
+  function read(){
+    var kind = menu(), v = {}, bad = {};
+    needed(kind).forEach(function(id){
+      var f = FIELDS[id], el = $(id), s = String(el.value).trim(), x = Number(s);
+      var ok = s !== '' && !(el.validity && el.validity.badInput) && isFinite(x) && x >= f.lo && x <= f.hi && (!f.int || Math.floor(x) === x);
+      if (ok) v[id] = x; else bad[id] = (id === 'cnt' && kind === 'thumb') ? '1〜50枚の整数で入れてください' : f.msg;
+    });
+    return { kind: kind, v: v, bad: bad, ok: Object.keys(bad).length === 0 };
+  }
+  function showErrors(bad){
+    Object.keys(FIELDS).forEach(function(id){
+      var el = $(id), field = el.closest('.field'), box = el.closest('.inp'), e = field.querySelector('.err');
+      if (!e) { e = document.createElement('span'); e.className = 'err'; e.id = 'err-' + id; e.setAttribute('role', 'alert'); field.appendChild(e); }
+      var m = bad[id] || '';
+      e.textContent = m; e.hidden = !m; box.classList.toggle('bad', !!m);
+      if (m) { el.setAttribute('aria-invalid', 'true'); el.setAttribute('aria-describedby', e.id); }
+      else { el.removeAttribute('aria-invalid'); el.removeAttribute('aria-describedby'); }
+    });
+  }
+  function quote(r){
+    var kind = r.kind, v = r.v, p = plan(), rows = [], total = 0, count = 1;
+    if (kind === 'thumb') {
+      count = v.cnt;
+      rows.push({ k: 'サムネ作成（' + count + '枚）', v: price.thumb * count });
+      return { rows: rows, total: price.thumb * count, count: count, perUnit: true, unit: '枚',
+               desc: 'サムネ作成 ' + count + '枚' };
+    }
+    var srcFee = price.src * Math.ceil(v.src);
+    rows.push({ k: '素材費（' + tc(v.src) + '）', v: srcFee }); total += srcFee;
+    var desc;
+    if (kind === 'clips') {
+      count = v.cnt;
+      var each = v.clen / 60, ef = editFee(each) * count;
+      rows.push({ k: '編集費（' + count + '本 × ' + yen(editFee(each)) + '円）', v: ef }); total += ef;
+      if (p !== 'none') { var pf = planFee(p, each) * count; rows.push({ k: planLabel(p) + '（' + count + '本）', v: pf }); total += pf; }
+      else rows.push({ k: '1発編集納品', v: 0 });
+      desc = '切り抜きショート：素材' + v.src + '分から ' + v.clen + '秒×' + count + '本';
+    } else {
+      var e = editFee(v.out);
+      rows.push({ k: '編集費（' + tc(v.out) + '）', v: e }); total += e;
+      if (p !== 'none') { var p2 = planFee(p, v.out); rows.push({ k: planLabel(p), v: p2 }); total += p2; }
+      else rows.push({ k: '1発編集納品', v: 0 });
+      desc = 'カット編集＋字幕：素材' + v.src + '分から 編集後' + v.out + '分';
+    }
+    if (v.thumb > 0) { var tf = price.thumb * v.thumb; rows.push({ k: 'サムネ作成（' + v.thumb + '枚）', v: tf }); total += tf; desc += '、サムネ' + v.thumb + '枚'; }
+    desc += '、' + planLabel(p);
+    return { rows: rows, total: total, count: count, perUnit: kind === 'clips', unit: '本', desc: desc };
+  }
+  var MENU_NAME = { clips: '切り抜きショート', cut: 'カット編集＋字幕', thumb: 'サムネ作成' };
+  function formUrl(q, kind){
+    if (!FORM.url) return '';
+    var ps = ['usp=pp_url'];
+    if (FORM.menu) ps.push(FORM.menu + '=' + encodeURIComponent(MENU_NAME[kind]));
+    if (FORM.detail) ps.push(FORM.detail + '=' + encodeURIComponent(q.desc + '（内訳：' + q.rows.map(function(r){ return r.k + ' ' + (r.v ? yen(r.v) + '円' : '無料'); }).join('／') + '）'));
+    if (FORM.total) ps.push(FORM.total + '=' + encodeURIComponent(yen(q.total) + '円（税別）'));
+    return FORM.url + (FORM.url.indexOf('?') < 0 ? '?' : '&') + ps.join('&');
+  }
+  function setApply(url, why){
+    var a = $('apply');
+    if (url) { a.href = url; a.target = '_blank'; a.rel = 'noopener'; a.removeAttribute('aria-disabled'); a.textContent = 'この内容で申し込む'; }
+    else { a.removeAttribute('href'); a.removeAttribute('target'); a.setAttribute('aria-disabled', 'true'); a.textContent = why; }
+  }
+  function render(){
+    var kind = menu();
+    $('f-src').hidden = (kind === 'thumb');
+    $('f-out').hidden = (kind !== 'cut');
+    $('f-len').hidden = (kind !== 'clips');
+    $('f-cnt').hidden = (kind === 'cut');
+    $('f-addthumb').hidden = (kind === 'thumb');
+    $('f-plan').hidden = (kind === 'thumb');
+    $('cnt-label').textContent = kind === 'thumb' ? '作る枚数' : '作る本数';
+    $('cnt-unit').textContent = kind === 'thumb' ? '枚' : '本';
+    $('cnt-hint').textContent = kind === 'thumb' ? '1枚 3,000円' : '素材費は1素材につき1回';
+    var r = read();
+    showErrors(r.bad);
+    $('src-tc').textContent = ('src' in r.v) ? tc(r.v.src) : '--:--:--';
+    $('out-tc').textContent = ('out' in r.v) ? tc(r.v.out) : '--:--:--';
+    var box = $('lines'); box.textContent = '';
+    if (!r.ok) {
+      var d0 = document.createElement('div'); d0.className = 'line';
+      d0.textContent = '赤い欄を直すと、金額が出ます'; box.appendChild(d0);
+      $('sum').textContent = '—'; $('per').hidden = true;
+      setApply('', '赤い欄を直してください');
+      return;
+    }
+    var q = quote(r);
+    q.rows.forEach(function(x){
+      var d = document.createElement('div'); d.className = 'line' + (x.v === 0 ? ' zero' : '');
+      var k = document.createElement('span'); k.textContent = x.k;
+      var v = document.createElement('span'); v.className = 'v'; v.textContent = x.v === 0 ? '無料' : yen(x.v) + '円';
+      d.appendChild(k); d.appendChild(v); box.appendChild(d);
+    });
+    $('sum').textContent = yen(q.total);
+    var per = $('per');
+    if (q.perUnit && q.count > 1) { per.hidden = false; per.textContent = '1' + q.unit + 'あたり ' + yen(q.total / q.count) + '円'; }
+    else per.hidden = true;
+    setApply(formUrl(q, kind), '申し込みフォームは準備中です');
+    if (window.clarity) try { window.clarity('set', 'menu', kind); } catch (e) {}
+  }
+  ['src','out','clen','cnt','thumb'].forEach(function(id){ $(id).addEventListener('input', render); });
+  document.querySelectorAll('input[name=menu],input[name=plan]').forEach(function(el){ el.addEventListener('change', render); });
+  $('apply').addEventListener('click', function(e){ if (this.getAttribute('aria-disabled') === 'true') e.preventDefault(); });
+  render();
+  // スマホでは、料金の欄が見えていないあいだだけ下にボタンを出す
+  var st = $('sticky'), calc = $('calc'), hero = document.querySelector('.hero .btn');
+  if ('IntersectionObserver' in window) {
+    var seen = { calc: false, hero: true };
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(e){ seen[e.target === calc ? 'calc' : 'hero'] = e.isIntersecting; });
+      st.classList.toggle('show', !seen.calc && !seen.hero);
+    });
+    io.observe(calc); io.observe(hero);
+  }
+})();
+</script>
+</body>
+</html>
