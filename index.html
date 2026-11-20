@@ -12,7 +12,7 @@
 <meta property="og:image" content="https://genjok0216kk.github.io/ippatsu/sample-1.jpg">
 <meta property="og:url" content="https://genjok0216kk.github.io/ippatsu/">
 <link rel="canonical" href="https://genjok0216kk.github.io/ippatsu/">
-<meta name="theme-color" content="#D81159">
+<meta name="theme-color" content="#16101A">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;700;900&display=swap" rel="stylesheet">
@@ -36,180 +36,347 @@ if (CLARITY_ID) {
 </script>
 <style>
 :root{
-  --bg:#FBF9FA; --surface:#FFFFFF; --sunk:#F4EFF1; --ink:#1A1317;
+  --bg:#FBF9FA; --surface:#FFFFFF; --sunk:#F4EFF1; --ink:#16101A;
   --line:#E9E1E5; --fg:#1A1317; --muted:#6E6168;
-  --accent:#D81159; --accent-ink:#FFFFFF; --bad:#B42318;
+  --accent:#D81159; --accent-ink:#FFFFFF; --bad:#B42318; --yellow:#FFD23F;
   --display:"Zen Kaku Gothic New",system-ui,sans-serif;
   --mono:"JetBrains Mono",ui-monospace,SFMono-Regular,monospace;
 }
 @media (prefers-color-scheme:dark){ :root:not([data-theme="light"]){
-  --bg:#141014; --surface:#1D181C; --sunk:#241E23; --ink:#0E0B0D;
+  --bg:#141014; --surface:#1D181C; --sunk:#241E23; --ink:#0B080C;
   --line:#352C33; --fg:#F5EFF2; --muted:#A3949C;
   --accent:#FF4A80; --accent-ink:#2A0512; --bad:#FF8A80; color-scheme:dark;
 }}
 :root[data-theme="dark"]{
-  --bg:#141014; --surface:#1D181C; --sunk:#241E23; --ink:#0E0B0D;
+  --bg:#141014; --surface:#1D181C; --sunk:#241E23; --ink:#0B080C;
   --line:#352C33; --fg:#F5EFF2; --muted:#A3949C;
   --accent:#FF4A80; --accent-ink:#2A0512; --bad:#FF8A80; color-scheme:dark;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--fg);font-family:var(--display);margin:0;font-size:16px;line-height:1.75;
-     -webkit-font-smoothing:antialiased;border-top:6px solid var(--accent)}
-.wrap{max-width:960px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));
+     -webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%}
+.wrap{max-width:1080px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));
       padding-right:max(16px,env(safe-area-inset-right,0px))}
-header.top{display:flex;justify-content:space-between;align-items:center;padding-block:18px;border-bottom:1px solid var(--line)}
-.logo{font-weight:900;font-size:22px;letter-spacing:.02em;color:var(--fg);text-decoration:none}
-.top a.cta-sm{font-size:13px;font-weight:700;color:var(--accent);text-decoration:none}
-.nav{display:flex;gap:18px;align-items:center}
-.nav a:not(.cta-sm){font-size:13px;font-weight:700;color:var(--fg);text-decoration:none}
-.nav a:hover{text-decoration:underline}
 h1,h2,h3{text-wrap:balance;margin:0;line-height:1.3}
-.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:700}
-section{padding-block:56px;border-bottom:1px solid var(--line)}
-section:last-of-type{border-bottom:0}
-h2{font-size:clamp(24px,5.4vw,34px);font-weight:900;margin-top:8px}
-.lead{color:var(--muted);margin-top:12px;max-width:52ch}
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);font-weight:700;
+         display:inline-flex;align-items:center;gap:8px}
+.eyebrow::before{content:"";width:18px;height:2px;background:currentColor}
+section{padding-block:72px}
+h2{font-size:clamp(26px,5.6vw,40px);font-weight:900;margin-top:10px;letter-spacing:-.01em}
+h2 em{font-style:normal;color:var(--accent)}
+.lead{color:var(--muted);margin-top:14px;max-width:56ch}
 .num{font-family:var(--mono);font-variant-numeric:tabular-nums}
+a{color:var(--accent)}
+
+/* ヘッダー（暗い入口の上） */
+.dark{background:var(--ink);color:#F5EFF2;position:relative;isolation:isolate;overflow:hidden}
+.dark::before{content:"";position:absolute;inset:-20% -10% auto auto;width:70vw;max-width:760px;aspect-ratio:1;z-index:-1;
+  background:radial-gradient(closest-side,rgba(216,17,89,.55),rgba(216,17,89,0));filter:blur(10px)}
+.dark::after{content:"";position:absolute;inset:0;z-index:-1;opacity:.07;
+  background-image:linear-gradient(#fff 1px,transparent 1px),linear-gradient(90deg,#fff 1px,transparent 1px);background-size:44px 44px;
+  mask-image:linear-gradient(180deg,#000,transparent 85%);-webkit-mask-image:linear-gradient(180deg,#000,transparent 85%)}
+header.top{display:flex;justify-content:space-between;align-items:center;padding-block:18px}
+.logo{font-weight:900;font-size:22px;letter-spacing:.04em;color:#fff;text-decoration:none;display:flex;align-items:center;gap:8px}
+.logo i{width:12px;height:12px;border-radius:3px;background:var(--accent);display:inline-block;transform:rotate(45deg)}
+.nav{display:flex;gap:16px;align-items:center}
+.nav a{font-size:13px;font-weight:700;color:#F5EFF2;text-decoration:none}
+.nav a:hover{text-decoration:underline}
+.nav a.pill{background:#fff;color:#16101A;border-radius:999px;padding:7px 14px}
+.nav a.pill:hover{text-decoration:none;background:var(--yellow)}
 
 /* 入口 */
-.hero{padding-top:40px}
-.hero h1{font-size:clamp(32px,7.6vw,54px);font-weight:900;letter-spacing:-.02em;margin-top:10px}
+.hero{display:grid;gap:20px;grid-template-columns:1fr;align-items:center;padding-block:28px 64px}
+@media (min-width:880px){.hero{grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);padding-block:40px 88px}}
+.hero .eyebrow{color:var(--yellow)}
+.hero h1{font-size:clamp(36px,8.4vw,64px);font-weight:900;letter-spacing:-.025em;margin-top:14px;line-height:1.18}
 .hero h1 .br{display:inline-block}
-.price-card{background:var(--ink);color:#F5EFF2;border-radius:14px;padding:24px;margin-top:28px}
-.price-card .what{font-size:13px;opacity:.8}
-.price-card .ex{font-size:clamp(18px,4.6vw,24px);font-weight:700;margin-top:6px;text-wrap:balance}
-.price-card .big{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px;margin-top:14px}
-.price-card .total{font-family:var(--mono);font-size:clamp(44px,13vw,72px);font-weight:700;line-height:1}
-.price-card .yen{font-size:18px}
-.price-card .per{margin-left:auto;font-size:14px;opacity:.85}
-.price-card .cond{font-size:12px;opacity:.7;margin-top:10px}
-.breakdown{margin-top:6px}
-.breakdown div{display:grid;grid-template-columns:2.2em 5em 1fr auto;gap:8px;align-items:baseline;padding:12px 0;border-bottom:1px solid var(--line);font-size:14px}
-.breakdown .no{font-family:var(--mono);color:var(--accent);font-size:12px}
-.breakdown .k{font-weight:700}
-.breakdown .d{color:var(--muted);font-size:13px;min-width:0}
-.breakdown .v{font-family:var(--mono);font-size:18px;white-space:nowrap}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--accent);color:var(--accent-ink);
-     font:inherit;font-weight:700;font-size:16px;border:0;border-radius:12px;padding:15px 22px;text-decoration:none;cursor:pointer;
-     min-height:52px}
-.btn:focus-visible{outline:3px solid var(--fg);outline-offset:3px}
-.btn[aria-disabled="true"],.btn:disabled{opacity:.45;cursor:not-allowed}
+.hero h1 .mark{background:linear-gradient(transparent 62%,var(--accent) 62%,var(--accent) 92%,transparent 92%);padding-inline:.04em}
+.hero .lead{color:#CFC3C9;font-size:16.5px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px;padding:0;list-style:none}
+.chips li{border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:5px 12px;font-size:13px;font-weight:700;background:rgba(255,255,255,.05)}
+.chips li b{color:var(--yellow)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--accent);color:#fff;
+     font:inherit;font-weight:700;font-size:16px;border:0;border-radius:14px;padding:15px 24px;text-decoration:none;cursor:pointer;
+     min-height:54px;box-shadow:0 10px 30px -10px rgba(216,17,89,.8);transition:transform .15s ease}
+.btn:hover{transform:translateY(-2px)}
+.btn::after{content:"→";font-family:var(--mono)}
+.btn:focus-visible{outline:3px solid var(--yellow);outline-offset:3px}
+.btn[aria-disabled="true"],.btn:disabled{opacity:.45;cursor:not-allowed;box-shadow:none}
+.btn[aria-disabled="true"]::after{content:none}
 .btn.block{width:100%}
-.hero .btn{margin-top:22px}
+.hero .btn{margin-top:26px}
+.hero .note{color:#A99BA2}
 .note{font-size:12.5px;color:var(--muted);margin-top:10px}
 
-/* できあがり */
-.result{display:grid;gap:28px;grid-template-columns:1fr;margin-top:28px;align-items:start}
-@media (min-width:760px){.result{grid-template-columns:minmax(0,1fr) minmax(0,1.1fr)}}
-.phones{display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:420px}
-.phones img{width:100%;height:auto;aspect-ratio:9/16;object-fit:cover;border-radius:16px;border:1px solid var(--line);display:block;background:var(--sunk)}
-.points{list-style:none;padding:0;margin:0;display:grid;gap:14px}
-.points li{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+.fan{position:relative;height:clamp(330px,88vw,560px);max-width:520px;margin-inline:auto;width:100%}
+.phone{position:absolute;top:50%;left:50%;width:44%;aspect-ratio:9/16;border-radius:22px;overflow:hidden;background:#000;
+       border:3px solid #2C2430;box-shadow:0 30px 60px -20px rgba(0,0,0,.8),0 0 0 1px rgba(255,255,255,.06)}
+.phone img{width:100%;height:100%;object-fit:cover;display:block}
+.fan .p1{transform:translate(-118%,-46%) rotate(-9deg);width:38%}
+.fan .p3{transform:translate(18%,-46%) rotate(9deg);width:38%}
+.fan .p2{transform:translate(-50%,-52%);z-index:2;width:47%;border-color:var(--accent)}
+.fan .tag{position:absolute;z-index:3;font-size:12px;font-weight:900;background:var(--yellow);color:#16101A;border-radius:8px;padding:4px 10px;
+          box-shadow:0 8px 20px -8px rgba(0,0,0,.6);white-space:nowrap}
+.fan .t1{left:2%;bottom:9%;transform:rotate(-6deg)}
+.fan .t2{right:0;top:6%;transform:rotate(5deg);background:#fff}
+
+/* 流れる帯 */
+.ticker{background:var(--accent);color:#fff;overflow:hidden;white-space:nowrap;padding-block:12px;font-weight:900;font-size:15px;letter-spacing:.06em}
+.ticker div{display:inline-block;animation:tick 32s linear infinite}
+.ticker span{margin-right:30px}
+.ticker span::after{content:"✦";margin-left:30px;opacity:.6}
+@keyframes tick{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.ticker div{animation:none}}
+
+/* 数字で見る */
+.stats{display:grid;gap:12px;grid-template-columns:repeat(2,minmax(0,1fr));margin-top:28px}
+@media (min-width:860px){.stats{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:20px 18px;position:relative;overflow:hidden}
+.stat .k{font-size:12.5px;font-weight:700;color:var(--muted)}
+.stat .v{font-family:var(--mono);font-weight:700;font-size:clamp(32px,8vw,46px);line-height:1.05;margin-top:8px;letter-spacing:-.02em}
+.stat .v small{font-family:var(--display);font-size:15px;font-weight:700;margin-left:2px}
+.stat .d{font-size:12.5px;color:var(--muted);margin-top:8px;line-height:1.6}
+.stat.hot{background:var(--ink);color:#F5EFF2;border-color:var(--ink)}
+.stat.hot .k,.stat.hot .d{color:#BBAEB5}
+.stat.hot .v{color:var(--yellow)}
+
+/* 1本の素材から何本も（図） */
+.split{display:grid;gap:18px;align-items:center;grid-template-columns:1fr;margin-top:32px}
+@media (min-width:860px){.split{grid-template-columns:minmax(0,1fr) 56px minmax(0,1.1fr)}}
+.src{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:18px}
+.src .screen{aspect-ratio:16/9;border-radius:10px;background:linear-gradient(135deg,#2a2230,#16101A);position:relative;overflow:hidden;
+             display:flex;align-items:center;justify-content:center;color:#fff}
+.src .screen b{font-family:var(--mono);font-size:clamp(28px,7vw,40px)}
+.src .screen span{position:absolute;left:10px;top:8px;font-size:11px;font-weight:700;opacity:.7}
+.bar{display:flex;height:14px;border-radius:999px;overflow:hidden;background:var(--sunk);margin-top:14px;gap:2px}
+.bar i{display:block;height:100%;background:transparent}
+.bar i.on{background:var(--accent)}
+.src .cap{display:flex;justify-content:space-between;font-size:12px;color:var(--muted);margin-top:8px}
+.arrow{display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:28px;color:var(--accent);font-weight:700}
+@media (max-width:859px){.arrow{transform:rotate(90deg)}}
+.outs{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px}
+.outs div{aspect-ratio:9/16;border-radius:10px;background:var(--ink);position:relative;overflow:hidden;border:2px solid var(--accent)}
+.outs div::before{content:"";position:absolute;left:12%;right:12%;top:12%;height:9%;border-radius:3px;background:var(--yellow)}
+.outs div::after{content:"";position:absolute;left:18%;right:18%;bottom:16%;height:6%;border-radius:3px;background:#fff;opacity:.85}
+.outs span{position:absolute;inset:auto 0 4% 0;text-align:center;color:#fff;font-family:var(--mono);font-size:10px;opacity:.7}
+.outs-cap{font-size:13px;color:var(--muted);margin-top:10px;text-align:center}
+
+/* 見た目の例 */
+.gallery{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px 2px 18px;margin-top:28px;
+         scrollbar-width:thin}
+.gallery figure{margin:0;flex:0 0 clamp(150px,40vw,200px);scroll-snap-align:start}
+.gallery .phone{position:static;width:100%;transform:none;border-color:var(--line);box-shadow:0 18px 40px -22px rgba(0,0,0,.5)}
+.gallery figcaption{font-size:13.5px;font-weight:700;margin-top:10px;display:flex;align-items:center;gap:6px}
+.gallery figcaption .no{font-family:var(--mono);color:var(--accent);font-size:11px}
+.points{list-style:none;padding:0;margin:32px 0 0;display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));counter-reset:p}
+.points li{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px 20px;counter-increment:p;position:relative;
+           display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:16px;align-items:start}
+.points li>*{grid-column:2}
+.points li::before{content:counter(p,decimal-leading-zero);font-family:var(--mono);font-weight:700;font-size:30px;color:var(--accent);line-height:1;grid-column:1;grid-row:1 / span 2;padding-top:2px}
 .points b{display:block;font-size:17px}
-.points span{color:var(--muted);font-size:14px}
+.points span{color:var(--muted);font-size:14px;display:block;margin-top:4px}
+
+/* 料金の例（内訳の棒） */
+.example{background:var(--ink);color:#F5EFF2;border-radius:22px;padding:clamp(20px,4vw,32px);margin-top:28px;display:grid;gap:22px;grid-template-columns:1fr}
+@media (min-width:860px){.example{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);align-items:center}}
+.example .what{font-size:13px;color:#BBAEB5}
+.example .ex{font-size:clamp(19px,4.6vw,24px);font-weight:900;margin-top:6px;text-wrap:balance}
+.example .big{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;margin-top:12px}
+.example .total{font-family:var(--mono);font-size:clamp(48px,13vw,76px);font-weight:700;line-height:1;color:var(--yellow)}
+.example .yen{font-size:18px}
+.example .per{font-size:14px;color:#D9CDD3;margin-top:6px}
+.example .per b{font-family:var(--mono);font-size:20px;color:#fff}
+.stack{display:flex;height:46px;border-radius:12px;overflow:hidden;gap:3px}
+.stack div{display:flex;align-items:center;padding:0 12px;font-size:13px;font-weight:900;white-space:nowrap;min-width:0}
+.stack .s1{background:#fff;color:#16101A}
+.stack .s2{background:var(--accent);color:#fff}
+.legend{margin-top:14px;display:grid;gap:0}
+.legend div{display:grid;grid-template-columns:12px 4.5em minmax(0,1fr) auto;gap:10px;align-items:baseline;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.12);font-size:14px}
+.legend i{width:12px;height:12px;border-radius:3px;display:block;align-self:center}
+.legend .d{color:#BBAEB5;font-size:12.5px}
+.legend .v{font-family:var(--mono);font-size:17px;white-space:nowrap}
+.example .cond{font-size:12px;color:#A99BA2;margin-top:10px}
 
 /* メニュー */
-.menus{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));margin-top:24px}
-.m{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px}
-.m h3{font-size:19px}
-.m p{color:var(--muted);font-size:14px;margin:8px 0 12px}
-.m .p{font-family:var(--mono);font-weight:700}
+.menus{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));margin-top:28px}
+.m{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:22px;display:flex;flex-direction:column;gap:8px;position:relative;overflow:hidden}
+.m .ic{width:44px;height:44px;border-radius:12px;background:color-mix(in srgb,var(--accent) 12%,transparent);color:var(--accent);
+       display:flex;align-items:center;justify-content:center}
+.m .ic svg{width:24px;height:24px}
+.m h3{font-size:20px;margin-top:6px}
+.m p{color:var(--muted);font-size:14px;margin:0;flex:1}
+.m .p{font-family:var(--mono);font-weight:700;font-size:20px;border-top:1px dashed var(--line);padding-top:12px;margin-top:6px}
+.m .p small{font-family:var(--display);font-size:13px;color:var(--muted);font-weight:700}
+.m.main{border:2px solid var(--accent)}
+.m.main::after{content:"おすすめ";position:absolute;top:16px;right:16px;font-size:11px;font-weight:900;background:var(--accent);color:#fff;border-radius:999px;padding:3px 10px}
 
 /* 見積 */
-.calc{display:grid;gap:20px;grid-template-columns:1fr;margin-top:24px}
-@media (min-width:860px){.calc{grid-template-columns:minmax(0,1.15fr) minmax(0,1fr)}}
-.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px}
+#calc{background:var(--sunk)}
+.calc{display:grid;gap:20px;grid-template-columns:1fr;margin-top:28px}
+@media (min-width:880px){.calc{grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);align-items:start}}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:22px}
 fieldset{border:0;margin:0 0 18px;padding:0;min-width:0}
 legend{font-size:13px;font-weight:700;color:var(--muted);padding:0;margin-bottom:8px}
 .choice{display:grid;gap:8px;grid-template-columns:repeat(auto-fit,minmax(140px,1fr))}
 .choice label{position:relative;min-width:0}
 .choice input{position:absolute;opacity:0;pointer-events:none}
-.choice span{display:block;border:1px solid var(--line);background:var(--sunk);border-radius:10px;padding:11px 13px;cursor:pointer;
-             font-size:14px;font-weight:700;min-height:48px}
+.choice span{display:block;border:1px solid var(--line);background:var(--bg);border-radius:12px;padding:11px 13px;cursor:pointer;
+             font-size:14px;font-weight:700;min-height:48px;transition:border-color .15s}
+.choice span:hover{border-color:var(--accent)}
 .choice small{display:block;font-weight:400;font-size:11.5px;opacity:.85;line-height:1.5}
-.choice input:checked+span{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.choice input:checked+span{background:var(--accent);color:#fff;border-color:var(--accent)}
 .choice input:focus-visible+span{outline:2px solid var(--accent);outline-offset:2px}
 .fields{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
 .field{display:flex;flex-direction:column;gap:5px;min-width:0}
 .field[hidden]{display:none}
 .field label{font-size:13px;font-weight:700}
-.inp{display:flex;align-items:center;border:1px solid var(--line);border-radius:10px;background:var(--bg);padding:0 12px;min-height:48px}
+.inp{display:flex;align-items:center;border:1px solid var(--line);border-radius:12px;background:var(--bg);padding:0 12px;min-height:50px}
+.inp:focus-within{border-color:var(--accent);box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 18%,transparent)}
 .inp.bad{border-color:var(--bad);box-shadow:0 0 0 1px var(--bad)}
 .inp input{border:0;background:transparent;color:var(--fg);font-family:var(--mono);font-size:18px;width:100%;min-width:0;padding:10px 0;outline:none}
 .inp .u{color:var(--muted);font-size:14px;white-space:nowrap}
 .hint{font-size:12px;color:var(--muted)}
 .err{font-size:12.5px;color:var(--bad);font-weight:700}
-.quote h3{font-size:15px;color:var(--muted)}
+.quote{background:var(--ink);color:#F5EFF2;border-color:var(--ink)}
+@media (min-width:880px){.quote{position:sticky;top:20px}}
+.quote h3{font-size:14px;color:#BBAEB5;font-family:var(--mono);letter-spacing:.12em}
 .lines{margin-top:8px}
-.line{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--line);font-size:14px}
+.line{display:flex;justify-content:space-between;gap:12px;padding:11px 0;border-bottom:1px solid rgba(255,255,255,.12);font-size:14px}
 .line .v{font-family:var(--mono);white-space:nowrap}
-.line.zero .v{color:var(--muted)}
-.sumrow{display:flex;align-items:baseline;flex-wrap:wrap;gap:4px 10px;margin-top:14px}
-.sum{font-family:var(--mono);font-size:clamp(34px,9vw,44px);font-weight:700;line-height:1.1}
-.tax{font-size:14px;color:var(--muted)}
-.per2{font-size:13px;color:var(--muted);margin-top:2px}
+.line.zero .v{color:#A99BA2}
+.sumrow{display:flex;align-items:baseline;flex-wrap:wrap;gap:4px 10px;margin-top:16px}
+.sum{font-family:var(--mono);font-size:clamp(38px,10vw,52px);font-weight:700;line-height:1.1;color:var(--yellow)}
+.tax{font-size:14px;color:#BBAEB5}
+.per2{font-size:13px;color:#D9CDD3;margin-top:2px}
 .quote .btn{margin-top:18px}
+.quote .note{color:#A99BA2}
+.quote .note a{color:#fff}
 
-/* 流れ・FAQ */
-.steps{list-style:none;padding:0;margin:24px 0 0;display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));counter-reset:s}
-.steps li{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px;counter-increment:s}
-.steps li::before{content:"0" counter(s);font-family:var(--mono);color:var(--accent);font-size:13px;font-weight:700;display:block}
-.steps b{display:block;font-size:16px;margin-top:4px}
-.steps span{font-size:13.5px;color:var(--muted)}
-details{border-bottom:1px solid var(--line);padding:14px 0}
-summary{cursor:pointer;font-weight:700;list-style-position:outside}
-details p{color:var(--muted);margin:8px 0 0;font-size:14.5px}
-.faq{margin-top:20px}
+/* 流れ */
+.steps{list-style:none;padding:0;margin:32px 0 0;display:grid;gap:0;grid-template-columns:1fr;counter-reset:s;position:relative}
+@media (min-width:860px){.steps{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.steps li{counter-increment:s;position:relative;padding:0 0 26px 62px}
+.steps li::before{content:counter(s);position:absolute;left:0;top:0;width:44px;height:44px;border-radius:50%;background:var(--accent);color:#fff;
+                  font-family:var(--mono);font-weight:700;font-size:18px;display:flex;align-items:center;justify-content:center;z-index:1;
+                  box-shadow:0 0 0 6px var(--bg)}
+.steps li::after{content:"";position:absolute;left:21px;top:44px;bottom:0;width:2px;background:var(--line)}
+.steps li:last-child::after{content:none}
+@media (min-width:860px){
+  .steps li{padding:62px 18px 0 0}
+  .steps li::after{left:44px;right:0;top:21px;bottom:auto;width:auto;height:2px}
+}
+.steps b{display:block;font-size:17px}
+.steps span{font-size:13.5px;color:var(--muted);display:block;margin-top:4px}
+.steps .t{display:inline-block;font-family:var(--mono);font-size:11px;font-weight:700;color:var(--accent);background:color-mix(in srgb,var(--accent) 10%,transparent);border-radius:6px;padding:1px 8px;margin-bottom:6px}
+
+/* FAQ・表記 */
+.faq{margin-top:24px;display:grid;gap:10px}
+details{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:4px 18px}
+details[open]{border-color:var(--accent)}
+summary{cursor:pointer;font-weight:700;padding:14px 0;list-style:none;display:flex;justify-content:space-between;gap:12px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-family:var(--mono);color:var(--accent);font-size:20px;line-height:1;transition:transform .2s}
+details[open] summary::after{transform:rotate(45deg)}
+details p{color:var(--muted);margin:0 0 16px;font-size:14.5px}
 .law{display:grid;grid-template-columns:minmax(8em,12em) 1fr;gap:0;margin:16px 0 0;font-size:14px;border-top:1px solid var(--line)}
 .law dt,.law dd{margin:0;padding:10px 0;border-bottom:1px solid var(--line)}
 .law dt{font-weight:700;padding-right:12px}
 .law dd{color:var(--muted)}
 @media (max-width:560px){.law{grid-template-columns:1fr}.law dt{border-bottom:0;padding-bottom:0}.law dd{padding-top:2px}}
-footer{padding-block:32px 48px;color:var(--muted);font-size:13px;border-top:1px solid var(--line)}
-footer a{color:inherit}
+.final{background:var(--accent);color:#fff;border-radius:24px;padding:clamp(28px,6vw,48px);text-align:center;margin-block:8px 64px;position:relative;overflow:hidden}
+.final h2{color:#fff;margin:0}
+.final p{margin:10px auto 0;max-width:40ch;opacity:.92}
+.final .btn{background:#fff;color:#16101A;margin-top:22px;box-shadow:0 10px 30px -10px rgba(0,0,0,.5)}
+.final .btn:hover{background:var(--yellow)}
+footer{padding-block:36px 48px;color:#BBAEB5;font-size:13px;background:var(--ink)}
+footer a{color:#fff}
 .sticky{position:fixed;left:0;right:0;bottom:0;padding:10px max(16px,env(safe-area-inset-left,0px)) calc(10px + env(safe-area-inset-bottom,0px));
         background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(6px);border-top:1px solid var(--line);display:none;z-index:5}
 @media (max-width:759px){.sticky.show{display:block} body{padding-bottom:84px}}
 </style>
 </head>
 <body>
-<div class="wrap">
-  <header class="top">
-    <a class="logo" href="#">IPPATSU</a>
-    <nav class="nav"><a href="ryokin/">料金表</a><a class="cta-sm" href="#calc">料金を見る</a></nav>
-  </header>
-
-  <section class="hero" aria-labelledby="h1">
-    <div class="eyebrow">定額の動画編集サービス</div>
-    <h1 id="h1"><span class="br">動画編集の</span><span class="br">外注・代行は、</span><span class="br">IPPATSU。</span></h1>
-    <p class="lead">長い動画から、見出しと字幕の入った縦型ショートを何本も作ります。料金は「素材の長さ」と「本数」だけで決まるので、見積もりの依頼も、相見積もりもいりません。</p>
-
-    <div class="price-card" aria-label="料金の例">
-      <div class="what">切り抜きショート｜料金の例</div>
-      <div class="ex">15分の素材から、30秒のショートを6本。</div>
-      <div class="big">
-        <span class="total num">16,500</span><span class="yen">円（税別）</span>
-        <span class="per">1本あたり <span class="num">2,750</span>円</span>
+<div class="dark">
+  <div class="wrap">
+    <header class="top">
+      <a class="logo" href="#"><i></i>IPPATSU</a>
+      <nav class="nav"><a href="ryokin/">料金表</a><a class="pill" href="#calc">料金を見る</a></nav>
+    </header>
+    <section class="hero" aria-labelledby="h1">
+      <div>
+        <div class="eyebrow">定額の動画編集サービス</div>
+        <h1 id="h1"><span class="br">動画編集の</span><span class="br"><span class="mark">外注・代行</span>は、</span><span class="br">IPPATSU。</span></h1>
+        <p class="lead">長い動画から、見出しと字幕の入った縦型ショートを何本も作ります。料金は「素材の長さ」と「本数」だけで決まるので、見積もりの依頼も、相見積もりもいりません。</p>
+        <ul class="chips">
+          <li>素材 <b class="num">1分500円</b></li>
+          <li>ショート <b class="num">1本1,500円〜</b></li>
+          <li>納品 <b>3営業日</b></li>
+        </ul>
+        <a class="btn" href="#calc">自分の条件で料金を見る</a>
+        <p class="note">料金を見るだけなら、名前やメールアドレスの入力はいりません。</p>
       </div>
-      <div class="cond">素材1本／1発編集納品／サムネなし</div>
+      <div class="fan" aria-hidden="true">
+        <div class="phone p1"><img src="img/s-obi.jpg" alt="" width="540" height="960"></div>
+        <div class="phone p2"><img src="img/s-obiface.jpg" alt="" width="540" height="960"></div>
+        <div class="phone p3"><img src="img/s-tora.jpg" alt="" width="540" height="960"></div>
+        <span class="tag t1">上に見出し・下に字幕</span>
+        <span class="tag t2">縦型 1080×1920</span>
+      </div>
+    </section>
+  </div>
+  <div class="ticker" aria-hidden="true"><div>
+    <span>切り抜きショート</span><span>カット編集＋字幕</span><span>サムネ作成</span><span>見積もりの依頼なし</span><span>YouTubeショート・TikTok・リール</span>
+    <span>切り抜きショート</span><span>カット編集＋字幕</span><span>サムネ作成</span><span>見積もりの依頼なし</span><span>YouTubeショート・TikTok・リール</span>
+  </div></div>
+</div>
+
+<div class="wrap">
+  <section aria-labelledby="h-num">
+    <div class="eyebrow">ひと目でわかる</div>
+    <h2 id="h-num">料金も納期も、<em>はじめから決まっています</em>。</h2>
+    <div class="stats">
+      <div class="stat"><div class="k">素材費</div><div class="v">500<small>円/分</small></div><div class="d">1素材につき1回だけ。何本作っても同じ。</div></div>
+      <div class="stat"><div class="k">ショートの編集費</div><div class="v">1,500<small>円〜</small></div><div class="d">60秒までのショート1本あたり。</div></div>
+      <div class="stat"><div class="k">納期</div><div class="v">3<small>営業日</small></div><div class="d">素材を受け取ってから。土日祝はお休み。</div></div>
+      <div class="stat hot"><div class="k">見積もりの依頼</div><div class="v">0<small>回</small></div><div class="d">このページの料金が、そのまま金額です。</div></div>
     </div>
-    <div class="breakdown" aria-label="金額の内訳">
-      <div><span class="no">01</span><span class="k">素材費</span><span class="d">15分 × 500円。1素材につき1回。</span><span class="v">7,500円</span></div>
-      <div><span class="no">02</span><span class="k">編集費</span><span class="d">30秒のショート6本 × 1,500円。</span><span class="v">9,000円</span></div>
-      <div><span class="no">03</span><span class="k">追加</span><span class="d">1発編集納品・サムネなし。</span><span class="v">0円</span></div>
-    </div>
-    <a class="btn" href="#calc">自分の条件で料金を見る</a>
-    <p class="note">料金を見るだけなら、名前やメールアドレスの入力はいりません。</p>
   </section>
 
-  <section aria-labelledby="h-result">
-    <div class="eyebrow">できあがり</div>
-    <h2 id="h-result">上に見出し、下に字幕。<br>スマホで止まるショートに。</h2>
-    <div class="result">
-      <div class="phones">
-        <img src="sample-1.jpg" alt="切り抜きショートの例：上に黄色の見出し、真ん中に動画、下に字幕" width="540" height="960" loading="lazy">
-        <img src="sample-2.jpg" alt="切り抜きショートの例（2本目）" width="540" height="960" loading="lazy">
+  <section aria-labelledby="h-split" style="padding-top:0">
+    <div class="eyebrow">しくみ</div>
+    <h2 id="h-split">1本の長い動画から、<br><em>ショートを何本も</em>。</h2>
+    <p class="lead">話がまとまる場面を選んで、縦型に組み直します。素材費は1回なので、本数を増やすほど1本あたりは安くなります。</p>
+    <div class="split" role="img" aria-label="15分の素材から、30秒のショートを6本作る図">
+      <div class="src">
+        <div class="screen"><span>素材（横長の動画）</span><b>15:00</b></div>
+        <div class="bar"><i style="flex:6"></i><i class="on" style="flex:1"></i><i style="flex:5"></i><i class="on" style="flex:1"></i><i style="flex:4"></i><i class="on" style="flex:1"></i><i style="flex:6"></i><i class="on" style="flex:1"></i><i style="flex:3"></i><i class="on" style="flex:1"></i><i style="flex:5"></i><i class="on" style="flex:1"></i><i style="flex:3"></i></div>
+        <div class="cap"><span>00:00</span><span>話がまとまる場面を6つ</span><span>15:00</span></div>
+      </div>
+      <div class="arrow">→</div>
+      <div>
+        <div class="outs"><div><span>01</span></div><div><span>02</span></div><div><span>03</span></div><div><span>04</span></div><div><span>05</span></div><div><span>06</span></div></div>
+        <div class="outs-cap">30秒の縦型ショート × 6本</div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div style="background:var(--surface);border-block:1px solid var(--line)">
+  <div class="wrap">
+    <section aria-labelledby="h-result">
+      <div class="eyebrow">できあがり</div>
+      <h2 id="h-result">上に見出し、下に字幕。<br><em>スマホで止まる</em>ショートに。</h2>
+      <p class="lead">見た目の例です。横にすべらせると、ほかの例も見られます。ご希望の見た目があれば、申し込みのときにお知らせください。</p>
+      <div class="gallery">
+        <figure><div class="phone"><img src="img/s-obi.jpg" alt="切り抜きショートの例：白い大きな見出しと赤い帯、下に字幕" width="540" height="960" loading="lazy"></div><figcaption><span class="no">01</span>赤帯</figcaption></figure>
+        <figure><div class="phone"><img src="img/s-obiface.jpg" alt="切り抜きショートの例：話している人の顔を画面いっぱいに大きく" width="540" height="960" loading="lazy"></div><figcaption><span class="no">02</span>顔アップ</figcaption></figure>
+        <figure><div class="phone"><img src="img/s-obiq.jpg" alt="切り抜きショートの例：下に決めゼリフを大きく" width="540" height="960" loading="lazy"></div><figcaption><span class="no">03</span>下に決めゼリフ</figcaption></figure>
+        <figure><div class="phone"><img src="img/s-tora.jpg" alt="切り抜きショートの例：白と赤の見出し" width="540" height="960" loading="lazy"></div><figcaption><span class="no">04</span>白×赤の見出し</figcaption></figure>
+        <figure><div class="phone"><img src="img/s-news.jpg" alt="切り抜きショートの例：ニュースのような箱の見出し" width="540" height="960" loading="lazy"></div><figcaption><span class="no">05</span>ニュース風</figcaption></figure>
+        <figure><div class="phone"><img src="img/s-pop.jpg" alt="切り抜きショートの例：にぎやかな丸い字" width="540" height="960" loading="lazy"></div><figcaption><span class="no">06</span>バラエティ風</figcaption></figure>
+        <figure><div class="phone"><img src="img/s-mincho.jpg" alt="切り抜きショートの例：明朝体の落ちついた見出し" width="540" height="960" loading="lazy"></div><figcaption><span class="no">07</span>ドキュメンタリー風</figcaption></figure>
       </div>
       <ul class="points">
         <li><b>見たくなる見出し</b><span>話の中身から、続きが気になる見出しを付けます。動画の中で言っていないことは書きません。</span></li>
@@ -217,24 +384,50 @@ footer a{color:inherit}
         <li><b>字幕と、間をつめたテンポ</b><span>字幕を入れ、無音の間をつめて、最後まで見やすい長さにします。</span></li>
         <li><b>縦型 1080×1920</b><span>YouTubeショート・TikTok・Instagramリールにそのまま出せる形です。</span></li>
       </ul>
+    </section>
+  </div>
+</div>
+
+<div class="wrap">
+  <section aria-labelledby="h-ex">
+    <div class="eyebrow">料金の例</div>
+    <h2 id="h-ex">15分の素材から、30秒のショートを6本なら。</h2>
+    <div class="example" aria-label="料金の例">
+      <div>
+        <div class="what">切り抜きショート｜料金の例</div>
+        <div class="ex">15分の素材 → 30秒 × 6本</div>
+        <div class="big"><span class="total num">16,500</span><span class="yen">円（税別）</span></div>
+        <div class="per">1本あたり <b>2,750</b>円</div>
+        <div class="cond">素材1本／1発編集納品／サムネなし</div>
+      </div>
+      <div>
+        <div class="stack" aria-hidden="true"><div class="s1" style="flex:7500">素材費</div><div class="s2" style="flex:9000">編集費</div></div>
+        <div class="legend" aria-label="金額の内訳">
+          <div><i style="background:#fff"></i><span>素材費</span><span class="d">15分 × 500円。1素材につき1回。</span><span class="v">7,500円</span></div>
+          <div><i style="background:var(--accent)"></i><span>編集費</span><span class="d">30秒のショート6本 × 1,500円。</span><span class="v">9,000円</span></div>
+          <div><i style="background:#5a4d55"></i><span>追加</span><span class="d">1発編集納品・サムネなし。</span><span class="v">0円</span></div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <section aria-labelledby="h-menu">
+  <section aria-labelledby="h-menu" style="padding-top:0">
     <div class="eyebrow">メニュー</div>
     <h2 id="h-menu">依頼できる動画編集</h2>
     <p class="lead">機械で確実に仕上がる範囲だけをメニューにしています。だから速くて、値段が動きません。</p>
     <div class="menus">
-      <div class="m"><h3>切り抜きショート</h3><p>長い動画から盛り上がる場面を選び、縦型に組み直して何本も作ります。</p><div class="p">素材費＋1本1,500円〜</div></div>
-      <div class="m"><h3>カット編集＋字幕</h3><p>無音と言いよどみを削ってテンポを上げ、字幕を入れます。</p><div class="p">素材費＋1,500円〜</div></div>
-      <div class="m"><h3>サムネ作成</h3><p>動画から絵を抜いて、文字を載せます。</p><div class="p">1枚3,000円</div></div>
+      <div class="m main"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M10 6h4M9 16h6"/></svg></div><h3>切り抜きショート</h3><p>長い動画から盛り上がる場面を選び、縦型に組み直して何本も作ります。</p><div class="p">素材費＋1本1,500円<small>〜</small></div></div>
+      <div class="m"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M20 4 8.1 15.9M14.5 14.5 20 20M8.1 8.1 12 12"/></svg></div><h3>カット編集＋字幕</h3><p>無音と言いよどみを削ってテンポを上げ、字幕を入れます。</p><div class="p">素材費＋1,500円<small>〜</small></div></div>
+      <div class="m"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M7 15l3-3 3 3 2-2 3 3M8 9h4"/></svg></div><h3>サムネ作成</h3><p>動画から絵を抜いて、文字を載せます。</p><div class="p">1枚3,000円</div></div>
     </div>
     <p class="note">素材費は1分500円で、1素材につき1回だけ。切り抜きで何本作っても、素材費は1回です。表示はすべて税別です。長さごとの金額は<a href="ryokin/">料金表</a>で一覧にしています。</p>
   </section>
+</div>
 
-  <section id="calc" aria-labelledby="h-calc">
+<section id="calc" aria-labelledby="h-calc">
+  <div class="wrap">
     <div class="eyebrow">料金</div>
-    <h2 id="h-calc">自分の条件で、料金を見る</h2>
+    <h2 id="h-calc">自分の条件で、<em>料金を見る</em></h2>
     <p class="lead">メニューと長さを入れると、内訳と合計がその場で出ます。この内容のまま申し込めます。素材と編集後の長さの早見表は<a href="ryokin/">動画編集の料金表</a>へ。</p>
     <div class="calc">
       <form class="card" id="calcform" novalidate onsubmit="return false">
@@ -271,20 +464,22 @@ footer a{color:inherit}
         <p class="note" id="apply-note">申し込みフォームが開きます。見積もりの内容は自動で入ります。送信する前に確かめられます。</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
+<div class="wrap">
   <section aria-labelledby="h-flow">
     <div class="eyebrow">流れ</div>
     <h2 id="h-flow">動画編集を依頼する流れ</h2>
     <ol class="steps">
-      <li><b>料金を確かめる</b><span>上の料金で、メニュー・長さ・本数を決めます。</span></li>
-      <li><b>フォームで申し込む</b><span>見積もりの内容は自動で入ります。お名前と連絡先を入れて送ります。</span></li>
-      <li><b>素材を渡す</b><span>動画は Googleドライブなどの共有リンクで受け取ります。</span></li>
-      <li><b>納品</b><span>できた動画と字幕のファイルを、共有フォルダでお渡しします。</span></li>
+      <li><span class="t">いま</span><b>料金を確かめる</b><span>上の料金で、メニュー・長さ・本数を決めます。</span></li>
+      <li><span class="t">フォーム</span><b>フォームで申し込む</b><span>見積もりの内容は自動で入ります。お名前と連絡先を入れて送ります。</span></li>
+      <li><span class="t">共有リンク</span><b>素材を渡す</b><span>動画は Googleドライブなどの共有リンクで受け取ります。</span></li>
+      <li><span class="t">3営業日以内</span><b>納品</b><span>できた動画と字幕のファイルを、共有フォルダでお渡しします。</span></li>
     </ol>
   </section>
 
-  <section aria-labelledby="h-faq">
+  <section aria-labelledby="h-faq" style="padding-top:0">
     <div class="eyebrow">よくある質問</div>
     <h2 id="h-faq">よくある質問</h2>
     <div class="faq">
@@ -299,7 +494,13 @@ footer a{color:inherit}
     </div>
   </section>
 
-  <section aria-labelledby="h-law">
+  <div class="final">
+    <h2>まずは、自分の動画でいくらか見てみる。</h2>
+    <p>素材の長さと本数を入れるだけ。名前もメールアドレスもいりません。</p>
+    <a class="btn" href="#calc">料金を見る</a>
+  </div>
+
+  <section aria-labelledby="h-law" style="padding-top:0">
     <h2 id="h-law" style="font-size:18px">特定商取引法に基づく表記</h2>
     <dl class="law">
       <dt>販売事業者</dt><dd>株式会社結</dd>
@@ -315,7 +516,7 @@ footer a{color:inherit}
 </div>
 <footer>
   <div class="wrap">
-    <div><b>IPPATSU</b>｜定額の動画編集サービス（切り抜きショート・カット編集＋字幕・サムネ作成）</div>
+    <div><b style="color:#fff">IPPATSU</b>｜定額の動画編集サービス（切り抜きショート・カット編集＋字幕・サムネ作成）</div>
     <div style="margin-top:6px">動画編集の外注・代行・依頼のご相談は、<a href="#calc">料金のページ</a>からどうぞ。長さごとの金額は<a href="ryokin/">料金表</a>にあります。</div>
   </div>
 </footer>
